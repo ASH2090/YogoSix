@@ -20,11 +20,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // ✅ Needed to serve CSS/JS
+app.UseStaticFiles(); 
 
 app.UseRouting();
 
-app.UseAuthorization(); // ✅ Now safe to use
+app.UseAuthorization(); 
 
 app.MapControllerRoute(
     name: "default",
