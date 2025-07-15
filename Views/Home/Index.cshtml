@@ -1,0 +1,50 @@
+﻿@using YogaSix.Models
+@model List<YogaClass>
+
+@{
+    ViewData["Title"] = "YogaSix Class Schedule";
+}
+
+<h2 class="text-primary mb-4">@ViewData["Title"]</h2>
+
+<a asp-controller="Yoga" asp-action="Add" class="btn btn-success mb-3">
+    + Add New Class
+</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>Class Name</th>
+            <th>Class Size</th>
+            <th>Challenge Level</th>
+            <th>Class Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.Size</td>
+                    <td>@c.ChallengeLevel?.Name</td>
+                    <td>@c.Description</td>
+                    <td>
+                        <a asp-controller="Yoga" asp-action="Edit" asp-route-id="@c.ClassId" class="btn btn-sm btn-primary me-2">Edit</a>
+                        <a asp-controller="Yoga" asp-action="Delete" asp-route-id="@c.ClassId" class="btn btn-sm btn-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No yoga classes available.</td>
+            </tr>
+        }
+    </tbody>
+</table>

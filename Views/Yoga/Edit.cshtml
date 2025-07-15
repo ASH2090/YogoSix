@@ -1,0 +1,48 @@
+@model YogaClass
+
+@{
+    ViewData["Title"] = Model.ClassId == 0 ? "Add Class" : "Edit Class";
+}
+
+<h2 class="text-primary mb-4">@ViewData["Title"]</h2>
+
+<form asp-action="@(Model.ClassId == 0 ? "Add" : "Edit")" method="post">
+    <input type="hidden" asp-for="ClassId" />
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Size" class="form-label"></label>
+        <input asp-for="Size" class="form-control" />
+        <span asp-validation-for="Size" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ChallengeLevelId" class="form-label">Challenge Level</label>
+        <select asp-for="ChallengeLevelId" asp-items="ViewBag.Levels" class="form-select">
+            <option value="">-- Select Level --</option>
+        </select>
+        <span asp-validation-for="ChallengeLevelId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control"></input>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">
+            @(Model.ClassId == 0 ? "Add Class" : "Update Class")
+        </button>
+
+        
+        <button formaction="/Home/Index" formmethod="get" class="btn btn-secondary">
+            Cancel
+        </button>
+    </div>
+</form>

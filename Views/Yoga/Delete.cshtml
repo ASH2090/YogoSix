@@ -1,0 +1,23 @@
+@model YogaClass
+
+@{
+    ViewData["Title"] = "Delete Class";
+}
+
+<h2 class="text-danger mb-4">@ViewData["Title"]</h2>
+
+<h5>Are you sure you want to delete this class?</h5>
+
+<div class="mb-3">Name: @Model.Name</div>
+<div class="mb-3">Size: @Model.Size</div>
+<div class="mb-3">Challenge Level: @Model.ChallengeLevel?.Name</div>
+<div class="mb-3">Description: @Model.Description</div>
+
+<form asp-action="Delete" method="post" class="d-inline">
+    <input type="hidden" asp-for="ClassId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<form asp-action="Index" asp-controller="Home" method="get" class="d-inline">
+    <button type="submit" class="btn btn-secondary ms-2">Cancel</button>
+</form>
