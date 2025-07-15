@@ -7,7 +7,7 @@
 namespace YogaSix.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class inMemoryDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

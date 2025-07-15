@@ -10,8 +10,8 @@ using YogaSix.Models;
 namespace YogaSix.Migrations
 {
     [DbContext(typeof(YogaSixContext))]
-    [Migration("20250710222110_Initial")]
-    partial class Initial
+    [Migration("20250715201853_inMemoryDB")]
+    partial class inMemoryDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -15,8 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="YogaSix.db">
+    <Content Include="YogaSix.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
 </Project>
